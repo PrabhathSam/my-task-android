@@ -5,7 +5,7 @@
     tools:ignore="contentDescription,HardcodedText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -39,8 +39,13 @@
             android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTask"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:scrollbarDefaultDelayBeforeFade="@android:integer/config_shortAnimTime"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="70dp"
@@ -61,7 +66,7 @@
                     app:tint="#FF0057" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btnAdd"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="?android:attr/selectableItemBackground">
