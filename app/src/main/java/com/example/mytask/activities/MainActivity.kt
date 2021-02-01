@@ -1,8 +1,10 @@
 package com.example.mytask.activities
 
 import android.app.Dialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mytask.R
@@ -29,25 +31,37 @@ class MainActivity : AppCompatActivity() {
     private fun UIevents () {
         btnAdd.setOnClickListener {
             var myDialog = Dialog(this)
-            myDialog.setContentView(R.layout.layout_popup)
-            myDialog.tvPopup.text = "Hello World!"
+            myDialog.setContentView(R.layout.layout_popup_add)
+//            myDialog.editTextAdd.setText("This sets the text.", TextView.BufferType.EDITABLE);
+            myDialog.window?.setGravity(Gravity.TOP)
             myDialog.window?.setBackgroundDrawableResource(android.R.color.transparent);
             myDialog.show()
         }
+
     }
 
 
     private  fun laodData (){
-        var language = arrayOf("Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com","Ruby", "Kotlin","apple.com")
-
+        var language = arrayOf("Ruby", "Kotlin")
         for ((i, item) in language.withIndex()){
             println(i)
             data.add(ListModel(item, i))
         }
         layoutManager = LinearLayoutManager(this)
         rvTask.layoutManager = layoutManager
-        adapter = TaskAdapter(data,this)
+        adapter = TaskAdapter(data,this,this)
         rvTask.adapter = adapter
+    }
+
+    fun btnClicked(position: Int, task: String) {
+        var myDialog = Dialog(this)
+        myDialog.setContentView(R.layout.layout_popup)
+        myDialog.editTextUpdate.setText(task, TextView.BufferType.EDITABLE);
+        myDialog.window?.setGravity(Gravity.TOP)
+        myDialog.window?.setBackgroundDrawableResource(android.R.color.transparent);
+        myDialog.show()
+        println(position)
+
     }
 
 

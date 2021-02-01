@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mytask.R
+import com.example.mytask.activities.MainActivity
 import com.example.mytask.models.ListModel
 
-class TaskAdapter (
+class TaskAdapter(
     private val data:  List<ListModel>,
-    var mContext: Context
+    var mContext: Context,
+    var taskInterface: MainActivity
 ) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
 
@@ -33,8 +35,8 @@ class TaskAdapter (
 
         init {
             itemView.setOnClickListener {
-                var posotion = adapterPosition
-                println(posotion)
+                var position = adapterPosition
+                taskInterface?.btnClicked(position,data[position].task)
             }
         }
     }

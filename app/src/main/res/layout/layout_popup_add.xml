@@ -23,14 +23,14 @@
         android:layout_marginEnd="30dp">
 
         <EditText
-            android:id="@+id/editTextUpdate"
+            android:id="@+id/editTextAdd"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Type Here..."
             android:background="@android:color/transparent"
             android:ems="10"
             android:inputType="textMultiLine" />
-
+        
     </androidx.core.widget.NestedScrollView>
 
 
@@ -43,27 +43,7 @@
         android:layout_gravity="bottom"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginEnd="10dp"
-  >
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            app:cardCornerRadius="10dp"
-            android:layout_margin="@dimen/commonBottonMargin"
-            app:cardBackgroundColor="#FD0404"
-            >
-
-            <Button
-                android:id="@+id/buttonTaskDelete"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Delete"
-                android:background="?android:attr/selectableItemBackground">
-            </Button>
-
-        </androidx.cardview.widget.CardView>
+        android:layout_marginEnd="10dp">
 
         <androidx.cardview.widget.CardView
         android:layout_width="0dp"
@@ -75,10 +55,10 @@
         android:background="@color/white">
 
         <Button
-            android:id="@+id/buttonTaskUpdate"
+            android:id="@+id/buttonAddTask"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Update"
+            android:text="Add +"
             android:background="?android:attr/selectableItemBackground">
 
         </Button>
