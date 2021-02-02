@@ -1,6 +1,8 @@
 package com.example.mytask.models
 
-data class ListModel (
-    var task:String,
-    var id: Int
+import com.example.mytask.database.User
+
+data class ListModel(
+    var id: Int,
+    var task: String
 )

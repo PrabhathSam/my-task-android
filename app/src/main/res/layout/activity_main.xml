@@ -44,7 +44,7 @@
                 android:layout_height="match_parent"
                 android:scrollbars="vertical"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="60dp"
                 android:scrollbarDefaultDelayBeforeFade="@android:integer/config_shortAnimTime"/>
 
             <androidx.cardview.widget.CardView

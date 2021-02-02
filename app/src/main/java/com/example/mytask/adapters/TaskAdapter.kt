@@ -1,6 +1,5 @@
 package com.example.mytask.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +7,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mytask.R
 import com.example.mytask.activities.MainActivity
-import com.example.mytask.models.ListModel
+import com.example.mytask.database.User
 
 class TaskAdapter(
-    private val data:  List<ListModel>,
-    var mContext: Context,
+    private val data:  List<User>,
     var taskInterface: MainActivity
 ) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
@@ -27,7 +25,7 @@ class TaskAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemTitle.text = data[position].task
+        holder.itemTitle.text = data[position].firstName
     }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -36,8 +34,17 @@ class TaskAdapter(
         init {
             itemView.setOnClickListener {
                 var position = adapterPosition
-                taskInterface?.btnClicked(position,data[position].task)
+                var task = data[position].firstName
+                var uid = data[position].uid
+
+                if (task != null) {
+                    taskInterface?.btnClicked(position,task,uid)
+                }
             }
         }
+    }
+
+    fun updateData(taskList: ArrayList<User>, user: User) {
+        taskList.add(user)
     }
 }
